@@ -7,7 +7,7 @@ sudo yum install -y httpd mariadb-server php php-mysqlnd unzip
 #Start Apache service and enable it on system startup
 sudo systemctl start httpd sudo systemctl enable httpd
 #Start MariaDB service and enable it on system startup
-#sudo systemctl start mariadb sudo systemctl enable mariadb
+sudo systemctl start mariadb sudo systemctl enable mariadb
 #Create WordPress database, user, and grant privileges
 sudo mysql -e "CREATE DATABASE wordpress;" 
 sudo mysql -e "CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'wppassword';" 
