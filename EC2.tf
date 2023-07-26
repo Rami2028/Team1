@@ -24,6 +24,10 @@ resource "aws_instance" "deham6demo"{
     subnet_id              = aws_subnet.devVPC_public_subnet1.id   
     tags = {
         Name = "terraform18_ec2_for_public_subnet1_az1"
-    }
+        }
     user_data              = file("user-data.sh")
+    
+    provisioner "local-exec"{
+        command = "echo Instance Type=${self.instance_type},Instance ID=${self.id},Public DNS=${self.public_dns},AMI ID=${self.ami} >> allinstancedetails"
+    }
 }
